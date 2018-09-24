@@ -1,0 +1,22 @@
+{
+  "name": "org.team1540.buoydatacollect",
+  "version": "0.0.1",
+  "displayName": "BluefruitLE",
+  "cordova": {
+    "platforms": [
+      "android"
+    ],
+    "plugins": {
+      "cordova-plugin-whitelist": {},
+      "cordova-plugin-google-sheets": {},
+      "cordova-plugin-geolocation": {}
+    }
+  },
+  "dependencies": {
+    "cordova-android": "^7.1.1",
+    "cordova-plugin-geolocation": "^4.0.1",
+    "cordova-plugin-google-sheets": "^1.0.7",
+    "cordova-plugin-whitelist": "^1.3.3",
+    "googleapis": "^27.0.0"
+  }
+}

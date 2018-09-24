@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="org.team1540.buoydatacollect" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>Buoy Data Collect</name>
+    <description>
+        An app for taking samples with the smart buoy and uploading data to a Google Sheets spreadsheet.
+    </description>
+    <author href="http://github.com/liamjwang">
+        Liam Wang
+    </author>
+    <content src="index.html" />
+    <access origin="*" />
+    <plugin name="cordova-plugin-ble-central" spec="~1.1.4" />
+    <plugin name="cordova-plugin-whitelist" spec="^1.3.3" />
+    <plugin name="cordova-plugin-google-sheets" spec="^1.0.7" />
+    <plugin name="cordova-plugin-geolocation" spec="^4.0.1" />
+    <icon density="mdpi" height="57" platform="ios" src="resources/icon.png" width="57" />
+    <engine name="android" spec="^7.1.1" />
+</widget>
