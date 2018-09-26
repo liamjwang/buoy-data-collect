@@ -13,7 +13,7 @@
 // limitations under the License.
 
 /* global mainPage, deviceList, refreshButton */
-/* global detailPage, resultDiv, messageInput, sendButton, disconnectButton */
+/* global detailPage, resultDiv, sal, tur, ph, tem, messageInput, sendButton, disconnectButton */
 /* global ble  */
 /* jshint browser: true , devel: true*/
 'use strict';
@@ -114,6 +114,14 @@ var app = {
         console.log(data);
         resultDiv.innerHTML = resultDiv.innerHTML + "Received: " + bytesToString(data) + "<br/>";
         resultDiv.scrollTop = resultDiv.scrollHeight;
+        let datastr=bytesToString(data);
+        let dataArr=str.split(';');
+        sal.innerHTML = dataArr[0];
+        tur.innerHTML = dataArr[0];
+        ph.innerHTML = dataArr[0];
+        tem.innerHTML = dataArr[0];
+
+
     },
     sendData: function(event) { // send data to Arduino
 
@@ -127,7 +135,8 @@ var app = {
             alert("Failed writing data to the bluefruit le");
         };
 
-        var data = stringToBytes(messageInput.value);
+        // var data = stringToBytes(messageInput.value);
+        var data = stringToBytes("sample");
         var deviceId = event.target.dataset.deviceId;
 
         if (app.writeWithoutResponse) {
