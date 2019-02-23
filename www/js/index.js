@@ -59,10 +59,10 @@ var app = {
     refreshDeviceList: function() {
         console.log("Refreshing device list");
         deviceList.innerHTML = ''; // empties the list
-        // ble.scan([bluefruit.serviceUUID], 5, app.onDiscoverDevice, app.onError);
+        ble.scan([bluefruit.serviceUUID], 5, app.onDiscoverDevice, app.onError);
         
         // if Android can't find your device try scanning for all devices
-        ble.scan([], 5, app.onDiscoverDevice, app.onError);
+        // ble.scan([], 5, app.onDiscoverDevice, app.onError);
     },
     onDiscoverDevice: function(device) {
         console.log(device);
@@ -113,13 +113,22 @@ var app = {
     onData: function(data) { // data received from Arduino
         console.log(data);
         resultDiv.innerHTML = resultDiv.innerHTML + "Received: " + bytesToString(data) + "<br/>";
+        resultDiv.innerHTML = resultDiv.innerHTML + "Length: " + bytesToString(data).length + "<br/>";
+        resultDiv.innerHTML = resultDiv.innerHTML + "Received: " + data + "<br/>";
+        resultDiv.innerHTML = resultDiv.innerHTML + "Received: " + data.length + "<br/>";
+        var view1 = new DataView(data);
+        resultDiv.innerHTML = resultDiv.innerHTML + "Received: " + view1.getInt8(0) + "<br/>";
         resultDiv.scrollTop = resultDiv.scrollHeight;
         let datastr=bytesToString(data);
-        let dataArr=str.split(';');
-        sal.innerHTML = dataArr[0];
-        tur.innerHTML = dataArr[0];
-        ph.innerHTML = dataArr[0];
-        tem.innerHTML = dataArr[0];
+        // let dataArr=datastr.split(';');
+        // alert(datastr)
+        this.bledata = data;
+
+
+        sal.innerHTML = view1.getInt8(0);
+        tur.innerHTML = view1.getInt8(1);
+        ph.innerHTML = view1.getInt8(2);
+        tem.innerHTML = view1.getInt8(3);
 
 
     },
