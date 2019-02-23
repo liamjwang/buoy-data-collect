@@ -14,5 +14,5 @@
     <plugin name="cordova-plugin-google-sheets" spec="^1.0.7" />
     <plugin name="cordova-plugin-geolocation" spec="^4.0.1" />
     <icon density="mdpi" height="57" platform="ios" src="resources/icon.png" width="57" />
-    <engine name="android" spec="~7.1.1" />
+    <engine name="android" spec="^7.1.1" />
 </widget>
